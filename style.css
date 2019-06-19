@@ -1,0 +1,126 @@
+/*! minireset.css v0.0.5 | MIT License | github.com/jgthms/minireset.css */
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+  text-align: left;
+}
+
+body {
+  background: #fff;
+  font-family: sans-serif;
+  margin: 10px;
+}
+
+p {
+  margin: 1rem;
+}
+
+.table {
+  width: 100%;
+}
+.table td {
+  border: solid 1px #ccc;
+}
+.table thead {
+  background: #000;
+  color: #fff;
+}
+.table thead th {
+  font-weight: bold;
+}
+@media only screen and (max-width: 1200px) {
+  .table {
+    width: 90%;
+  }
+}
+
+.btn, .card-action, .btn-danger, .card-cancel {
+  padding: 5px 12px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.card-cancel, .card-action, .card {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn, .card-action, .btn-danger, .card-cancel {
+  background: #698fd6;
+  color: #fff;
+}
+.btn:hover, .card-action:hover, .btn-danger:hover, .card-cancel:hover {
+  background: #4171cb;
+}
+@media only screen and (max-width: 1200px) {
+  .btn, .card-action, .btn-danger, .card-cancel {
+    padding: 10px;
+  }
+}
+
+.btn-danger, .card-cancel {
+  background: #b34d4d;
+}
+.btn-danger:hover, .card-cancel:hover {
+  background: red;
+}
+
+.card {
+  padding: 10px 0px;
+  border-radius: 3px;
+}
+
+.card-actions {
+  display: flex;
+  margin: 0 12px;
+}
+
+@media only screen and (max-width:500px) {
+  .card-actions {
+    display: block;
+  }
+
+  .btn, .btn-danger, .card-action, .card-cancel {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
