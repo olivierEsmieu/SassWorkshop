@@ -1,0 +1,78 @@
+$medium: 500px;
+$base-font-size: 25px;
+
+@import "./libs/reset.scss";
+@import "./libs/mixins.scss";
+@import "./libs/functions.scss";
+@import "./libs/responsive.scss";
+
+$primary: rgb(105, 143, 214);
+$padding: 20px;
+html,
+body {
+  font-size: 16px;
+}
+%btn {
+  padding: rem($size: 5) rem($size: 12);
+  text-decoration: none;
+  border-radius: 3px;
+}
+%shadow {
+  box-shadow: 0 1px 5px rgba(192, 134, 134, 0.2);
+}
+body {
+  background: #ccc;
+  font-family: sans-serif;
+  margin: 10px;
+}
+p {
+  margin: 1rem;
+}
+
+.btn {
+  @extend %btn;
+  background: $primary;
+  color: #fff;
+  &:hover {
+    background: darken($primary, 10);
+  }
+}
+.big {
+  font-size: em(20);
+  text-transform: uppercase;
+}
+.btn-danger {
+  @extend .btn;
+  background: rgb(179, 77, 77);
+  &:hover {
+    background: red;
+  }
+}
+.card {
+  @extend %shadow;
+  padding: 10px 0px;
+  border-radius: 3px;
+  // @include rotate(5deg);
+  position: relative;
+  background: #fff;
+  @include triangle($color: #ff0000, $size: 15px);
+}
+.card-actions {
+  display: flex;
+  margin: 0 12px;
+}
+.card-action {
+  @extend .btn;
+}
+.card-cancel {
+  @extend .btn-danger;
+}
+
+@media #{$medium-down} {
+  .card-actions {
+    display: block;
+  }
+  .btn {
+    width: 100%;
+  }
+}

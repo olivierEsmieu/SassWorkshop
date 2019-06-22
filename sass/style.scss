@@ -1,76 +1,131 @@
 $medium: 500px;
-@import "./libs/reset.scss";
-@import "./libs/responsive.scss";
+$base-font-size: 20px;
 
-$primary: rgb(105, 143, 214);
+@import "libs/reset.scss";
+@import "libs/mixins.scss";
+@import "libs/functions.scss";
+@import "libs/responsive.scss";
+
+$primary: rgb(21, 21, 21);
 $padding: 20px;
+
+html,
 body {
-  background: #fff;
-  font-family: sans-serif;
-  margin: 10px;
+  font-size: $base-font-size;
 }
+
+body {
+  padding: $padding;
+  background: #ccc;
+  font-family: sans-serif;
+}
+
 p {
   margin: 1rem;
 }
+
 .table {
   width: 100%;
+
   td {
-    border: solid 1px #ccc;
+    border: 1px solid #ccc;
   }
+
   thead {
-    background: #000;
-    color: #fff;
-    th {
-      font-weight: bold;
+    background: {
+      color: #000;
+      repeat: no-repeat;
     }
+    color: #fff;
   }
+
   @media only screen and (max-width: 1200px) {
     width: 90%;
   }
 }
+
 %btn {
-  padding: 5px 12px;
-  text-decoration: none;
+  padding: em(5) em(12);
   border-radius: 3px;
 }
-%shadow {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-}
+@debug lightness($primary);
 .btn {
   @extend %btn;
+  text-decoration: none;
   background: $primary;
-  color: #fff;
-  &:hover {
-    background: darken($primary, 10);
+  @if (lightness($primary) > 50%) {
+    color: #000;
+  } @else {
+    color: #fff;
   }
-  @media only screen and (max-width: 1200px) {
-    padding: 10px;
+  &:hover {
+    background: rgba($primary, 0.5);
   }
 }
+
+.big {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
 .btn-danger {
   @extend .btn;
+
   background: rgb(179, 77, 77);
   &:hover {
-    background: red;
+    background: rgb(116, 33, 33);
   }
 }
+
+%shadow {
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
 .card {
   @extend %shadow;
-  padding: 10px 0px;
+  padding: 10px;
   border-radius: 3px;
+  position: relative;
+  background: #fff;
+  @include triangle($color: #fff, $size: 15px);
 }
+
 .card-action {
   @extend .btn;
-  @extend %shadow;
 }
+
 .card-cancel {
   @extend .btn-danger;
-  @extend %shadow;
 }
+
 .card-actions {
   display: flex;
-  margin: 0 12px;
 }
+@for $i from 1 through 4 {
+  .m-#{$i} {
+    margin: 0 ($i * 1rem);
+  }
+}
+$animals: bear, lion, camel;
+@each $animal in $animals {
+  .icon-#{$animal} {
+    background: url(img/#{$animal}.png);
+  }
+}
+$categories: chien rgb(104, 96, 96), chat rgb(200, 176, 130), poisson rgb(120, 125, 230);
+
+@each $category in $categories {
+  //   @debug #{nth($category, 1)};
+  .#{nth($category, 1)} {
+    background: nth($category, 2);
+    @if (lightness(nth($category, 2)) > 50%) {
+      color: #000;
+    } @else {
+      color: #fff;
+    }
+  }
+}
+
 @media #{$medium-down} {
   .card-actions {
     display: block;
